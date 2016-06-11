@@ -76,7 +76,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="一覧" id="6xH-uz-ujP">
-                        <barButtonItem key="leftBarButtonItem" title="もどる" id="90q-2e-hAE"/>
+                        <barButtonItem key="leftBarButtonItem" title="もどる" id="90q-2e-hAE">
+                            <connections>
+                                <segue destination="qOG-rl-I9i" kind="unwind" unwindAction="back:" id="XIA-Nq-dAn"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Rx4-wC-Bpg">
                             <connections>
                                 <segue destination="Csu-aN-5Vd" kind="push" id="xgD-wc-hGb"/>
@@ -85,6 +89,7 @@
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0A-d9-Bn2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="qOG-rl-I9i" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="876" y="1051"/>
         </scene>
@@ -126,17 +131,25 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="新規追加" id="5Dh-r6-B0W">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="1Bz-l0-7Fp"/>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="1Bz-l0-7Fp">
+                            <connections>
+                                <action selector="saveWord" destination="Csu-aN-5Vd" id="uDb-UN-f7u"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="englishTextField" destination="lQy-cp-CKT" id="NXS-0E-txL"/>
+                        <outlet property="japaneseTextField" destination="gW3-BR-SXL" id="XD9-Z8-3DP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DWa-Ei-jgI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1276" y="1049"/>
         </scene>
-        <!--Preview Controller-->
+        <!--Question View Controller-->
         <scene sceneID="yAX-eU-Mia">
             <objects>
-                <viewController id="cee-WD-L8C" customClass="QLPreviewController" sceneMemberID="viewController">
+                <viewController id="cee-WD-L8C" customClass="QuestionViewController" customModule="WordList" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zH3-yl-D3C">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,16 +169,19 @@
                                 <state key="normal" title="答えを表示">
                                     <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="nextButtonPushed" destination="cee-WD-L8C" eventType="touchDown" id="jyV-zl-Sob"/>
+                                </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pHP-nA-m8O">
-                                <rect key="frame" x="103" y="142" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pHP-nA-m8O">
+                                <rect key="frame" x="38" y="122" width="176" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xZq-K6-JVq">
-                                <rect key="frame" x="172" y="336" width="42" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xZq-K6-JVq">
+                                <rect key="frame" x="110" y="318" width="172" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -175,6 +191,9 @@
                         <color key="backgroundColor" red="0.2103284869" green="0.38770042539999999" blue="0.1675135479" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
+                        <outlet property="answerLabel" destination="xZq-K6-JVq" id="qLI-7t-7EC"/>
+                        <outlet property="nextButton" destination="WFd-Qw-krV" id="2F0-vR-5cf"/>
+                        <outlet property="questionLabel" destination="pHP-nA-m8O" id="uXC-KP-Qt5"/>
                         <segue destination="0fN-98-h5Y" kind="modal" identifier="toFinishView" id="YWM-RK-K63"/>
                     </connections>
                 </viewController>

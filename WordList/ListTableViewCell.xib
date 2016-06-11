@@ -15,19 +15,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="English" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cU5-Zv-nUN">
-                        <rect key="frame" x="7" y="11" width="56" height="21"/>
+                        <rect key="frame" x="7" y="11" width="135" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.084846682130000003" green="0.95097758509999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="日本語" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="190-9d-pWb">
-                        <rect key="frame" x="108" y="11" width="51" height="21"/>
+                        <rect key="frame" x="156" y="11" width="151" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" red="0.27498533110000001" green="0.60953603280000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="englishLabel" destination="cU5-Zv-nUN" id="0lU-iH-1zk"/>
+                <outlet property="japaneseLabel" destination="190-9d-pWb" id="Ylm-0n-0Y4"/>
+            </connections>
         </tableViewCell>
     </objects>
 </document>
